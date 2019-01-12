@@ -27,3 +27,10 @@ vk_session.method("wall.post", {
     'attachment': attachment,
 })
 
+
+
+#тут будет функция, получающая список групп из  файла
+def reade_group_list():
+    f = open('group.txt')
+    for line in f:
+        print(line)
