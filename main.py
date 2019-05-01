@@ -29,7 +29,7 @@ vk_session.auth()
 
 upload = VkUpload(vk_session)  # Для загрузки изображений
 
-photos = ['1.jpg', '2.jpg']  #картинки, лежат в том-же папке, что и исполняемый
+photos = ['new.jpeg']  #картинки, лежат в том-же папке, что и исполняемый
 # Или:
 # photos = [open('1.jpg', 'rb'), open('2.jpg', 'rb')]
 photo_list = upload.photo_wall(photos)
@@ -39,12 +39,15 @@ reade_group_list()
 
 
 for item in group_list:
-    #print(item)
-    vk_session.method("wall.post", {
-        'owner_id': item,  # Посылаем себе на стену # c минусом - в группу.
-        'message': 'Новый сайт знкомст! Заходите! http://sakura-city.info/',
-        'attachment': attachment,
-    })
+    print(item)
+    try:
+        vk_session.method("wall.post", {
+            'owner_id': item,  # Посылаем себе на стену # c минусом - в группу.
+            'message': 'Новый сайт знкомст! Заходите! http://sakura-city.info/',
+            'attachment': attachment,
+        })
+    except:
+        pass
 
 exit()
 
