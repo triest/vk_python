@@ -1,5 +1,8 @@
 import re
 
+def get_trailing_number(s):
+    m = re.search(r'\d+$', s)
+    return int(m.group()) if m else None
 
 def reade_group_list():
  #   f = open('group.txt')
@@ -9,8 +12,16 @@ def reade_group_list():
 
 array=reade_group_list()
 
-for i in array:
-    i=(re.findall('\d+', i ))
+#for i in array:
+#    i=(re.findall('\d+', i ))
+[get_trailing_number(i) for i in array]
 
-print(i)
+
+test='https://vk.com/public176613767'
+test=get_trailing_number(test)
+
+print(array)
+
+
+
 
